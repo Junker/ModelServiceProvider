@@ -1,5 +1,5 @@
 <?php
-namespace Junker;
+namespace Junker\Silex;
 
 use Silex\Application;
 
