@@ -1,0 +1,20 @@
+{
+    "name": "junker/model-service-provider",
+    "description": "Model Service Provider for Silex",
+    "keywords": ["silex","model", "mvc"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry Kosenkov",
+            "email": "dk-junker@ya.ru"
+        }
+    ],
+    "require": {
+        "silex/silex": "1.*"
+    },
+    "autoload": {
+        "psr-0" : {
+            "Junker" : "src/"
+        }
+    }
+}
