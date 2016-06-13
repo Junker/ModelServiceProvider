@@ -25,7 +25,7 @@ class ModelServiceProvider implements ServiceProviderInterface
     		throw new \InvalidArgumentException(sprintf('Path "%s" is not valid.', $path));
     	}
 
-        foreach (glob($path . '/*.php') as $filename)
+        foreach (glob($path . '/*.php', GLOB_NOSORT) as $filename)
         {
         	$model_name = pathinfo($filename, PATHINFO_FILENAME);
 
