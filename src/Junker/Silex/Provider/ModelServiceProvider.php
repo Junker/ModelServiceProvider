@@ -5,7 +5,7 @@ namespace Junker\Silex\Provider;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 
-class ModelServiceProvider implements ServiceProviderInterface 
+class ModelServiceProvider implements ServiceProviderInterface
 {
 	protected $path;
 	protected $namespace;
@@ -16,7 +16,7 @@ class ModelServiceProvider implements ServiceProviderInterface
 		$this->namespace = $namespace;
 	}
 
-    public function register(Application $app) 
+    public function register(Application $app)
     {
     	$path = $this->path;
 
@@ -31,7 +31,7 @@ class ModelServiceProvider implements ServiceProviderInterface
 
 
             $class_name = $this->namespace ? ($this->namespace . "\\" . $model_name) : ("\\".$model_name);
-        	
+
             if (!class_exists($class_name))
                 require_once $filename;
 
