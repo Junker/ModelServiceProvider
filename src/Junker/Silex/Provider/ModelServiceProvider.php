@@ -2,8 +2,8 @@
 
 namespace Junker\Silex\Provider;
 
-use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
 
 class ModelServiceProvider implements ServiceProviderInterface
 {
@@ -16,7 +16,7 @@ class ModelServiceProvider implements ServiceProviderInterface
 		$this->namespace = $namespace;
 	}
 
-    public function register(Application $app)
+    public function register(Container $app)
     {
     	$path = $this->path;
 
@@ -36,12 +36,9 @@ class ModelServiceProvider implements ServiceProviderInterface
                 require_once $filename;
 
 
-        	$app[$model_name] = $app->share(function($app) use ($class_name) {
+        	$app[$model_name] = function($app) use ($class_name) {
 	            return new $class_name($app);
-	        });
+	        };
 	    }
-    }
-    public function boot(Application $app) {
-
     }
 }
